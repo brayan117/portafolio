@@ -1,0 +1,100 @@
+/* Estilos para las notificaciones del sistema */
+.notification {
+    position: fixed;
+    bottom: 50px;
+    right: 20px;
+    background: rgba(0, 0, 0, 0.9);
+    color: #fff;
+    padding: 12px 20px;
+    border-radius: 5px;
+    border-left: 4px solid #4CAF50;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    z-index: 2000;
+    transform: translateX(120%);
+    opacity: 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    max-width: 300px;
+    font-family: 'Courier New', monospace;
+    font-size: 13px;
+    line-height: 1.4;
+}
+
+.notification.show {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+/* Tipos de notificaciones */
+.notification.success {
+    border-left-color: #4CAF50;
+}
+
+.notification.error {
+    border-left-color: #ff5f56;
+}
+
+.notification.warning {
+    border-left-color: #ffbd2e;
+}
+
+.notification.info {
+    border-left-color: #2e9fff;
+}
+
+/* Iconos de notificación */
+.notification::before {
+    margin-right: 10px;
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+}
+
+.notification.success::before {
+    content: '\f00c'; /* check */
+    color: #4CAF50;
+}
+
+.notification.error::before {
+    content: '\f00d'; /* times */
+    color: #ff5f56;
+}
+
+.notification.warning::before {
+    content: '\f12a'; /* exclamation */
+    color: #ffbd2e;
+}
+
+.notification.info::before {
+    content: '\f05a'; /* info */
+    color: #2e9fff;
+}
+
+/* Animación de progreso */
+.notification .progress-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 3px;
+    background: rgba(255, 255, 255, 0.2);
+    width: 100%;
+    overflow: hidden;
+    border-radius: 0 0 5px 5px;
+}
+
+.notification .progress-bar::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: currentColor;
+    transform: scaleX(1);
+    transform-origin: left;
+    animation: progress 3s linear forwards;
+}
+
+@keyframes progress {
+    to {
+        transform: scaleX(0);
+    }
+}

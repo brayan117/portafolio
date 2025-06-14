@@ -1,0 +1,80 @@
+/* Estilos para el indicador de WiFi */
+.wifi-container {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.wifi-icon {
+    display: flex;
+    align-items: flex-end;
+    height: 16px;
+    position: relative;
+}
+
+.wifi-bar {
+    width: 3px;
+    background-color: #4CAF50;
+    margin-right: 2px;
+    border-radius: 3px;
+    animation: wifiPulse 2s infinite ease-in-out;
+    transform-origin: bottom;
+}
+
+.wifi-bar:nth-child(1) {
+    height: 4px;
+    animation-delay: 0.1s;
+}
+
+.wifi-bar:nth-child(2) {
+    height: 7px;
+    animation-delay: 0.2s;
+}
+
+.wifi-bar:nth-child(3) {
+    height: 10px;
+    animation-delay: 0.3s;
+}
+
+.wifi-bar:nth-child(4) {
+    height: 13px;
+    animation-delay: 0.4s;
+}
+
+@keyframes wifiPulse {
+    0%, 100% {
+        opacity: 0.3;
+        transform: scaleY(0.8);
+    }
+    50% {
+        opacity: 1;
+        transform: scaleY(1);
+    }
+}
+
+/* Estados del WiFi */
+.wifi-status {
+    font-family: 'Courier New', monospace;
+    font-size: 11px;
+    color: #4CAF50;
+    transition: color 0.3s;
+}
+
+.wifi-weak .wifi-bar {
+    background-color: #ff5f56;
+}
+
+.wifi-weak .wifi-status {
+    color: #ff5f56;
+}
+
+.wifi-medium .wifi-bar:nth-child(3),
+.wifi-medium .wifi-bar:nth-child(4) {
+    opacity: 0.3;
+}
+
+.wifi-weak .wifi-bar:nth-child(2),
+.wifi-weak .wifi-bar:nth-child(3),
+.wifi-weak .wifi-bar:nth-child(4) {
+    opacity: 0.3;
+}

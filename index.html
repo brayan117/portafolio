@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyberSec Portfolio - Sistema Operativo</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/ascii-background.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="ascii-art"></div>
+    
+    <!-- Desktop Icons -->
+    <div class="desktop-icons">
+        <div class="desktop-icon" data-window="about">
+            <i class="fas fa-user"></i>
+            <span>About.exe</span>
+        </div>
+        <div class="desktop-icon" data-window="projects">
+            <i class="fas fa-folder"></i>
+            <span>Projects</span>
+        </div>
+        <div class="desktop-icon" data-window="skills">
+            <i class="fas fa-code"></i>
+            <span>Skills</span>
+        </div>
+        <div class="desktop-icon" data-window="contact">
+            <i class="fas fa-envelope"></i>
+            <span>Contact.txt</span>
+        </div>
+    </div>
+
+    <!-- Terminal Window -->
+    <div class="terminal-window" id="main-terminal">
+        <div class="window-header">
+            <div class="window-title">
+                <i class="fas fa-terminal"></i>
+                <span>root@cybersec-workstation</span>
+            </div>
+            <div class="window-controls">
+                <div class="control-btn minimize">
+                    <i class="fas fa-window-minimize"></i>
+                </div>
+                <div class="control-btn close">
+                    <i class="fas fa-times"></i>
+                </div>
+            </div>
+        </div>
+        <div class="terminal-content">
+            <div id="terminal-output"></div>
+            <div class="terminal-input-line">
+                <span class="prompt">root@cybersec:~$</span>
+                <input type="text" id="terminal-input" placeholder="Type 'help' for commands..." autocomplete="off">
+            </div>
+        </div>
+    </div>
+
+    <!-- Windows Container -->
+    <div id="windows-container"></div>
+
+    <!-- Status Bar -->
+    <div class="status-bar">
+        <div class="status-left">
+            <div class="status-item">
+                <div class="status-indicator active"></div>
+                <span>SECURE CONNECTION</span>
+            </div>
+            <div class="status-item">
+                <i class="fas fa-shield-alt"></i>
+                <span>FIREWALL ACTIVE</span>
+            </div>
+        </div>
+        <div class="status-right">
+            <!-- Indicador de CPU -->
+            <div class="status-item" id="cpu-usage">
+                <i class="fas fa-microchip"></i>
+                <span class="cpu-percent">0%</span>
+            </div>
+            
+            <!-- IP Local -->
+            <div class="status-item" id="local-ip">
+                <i class="fas fa-network-wired"></i>
+                <span>192.168.1.100</span>
+            </div>
+            
+            <!-- IP Objetivo -->
+            <div class="status-item" id="target-ip">
+                <i class="fas fa-bullseye"></i>
+                <span class="target-ip-value">No target</span>
+                <div class="ip-input-container">
+                    <input type="text" id="ip-input" placeholder="Ingrese IP" class="ip-input">
+                    <button id="set-ip" class="ip-button">Set</button>
+                </div>
+            </div>
+            <link rel="stylesheet" href="styles/status-bar.css">
+            <link rel="stylesheet" href="styles/ip-target.css">
+            <!-- Otros estilos --><link rel="stylesheet" href="styles/style.css">
+            <link rel="stylesheet" href="styles/status-bar.css">
+            <link rel="stylesheet" href="styles/ip-target.css">
+            <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">     
+            <!-- WiFi -->
+            <div class="status-item">
+                <div class="wifi-icon">
+                    <span class="wifi-bar"></span>
+                    <span class="wifi-bar"></span>
+                    <span class="wifi-bar"></span>
+                    <span class="wifi-bar"></span>
+                </div>
+                <span>ENCRYPTED</span>
+            </div>
+            
+            <!-- Hora -->
+            <span id="current-time"></span>
+        </div>
+    </div>
+
+    <!-- Incluir plantillas -->
+    <!-- Plantilla base para ventanas -->
+    <div id="templates" style="display: none;">
+        <script type="text/html" src="views/window-base.html"></script>
+        <script type="text/html" src="views/about-window.html"></script>
+        <script type="text/html" src="views/projects-window.html"></script>
+        <script type="text/html" src="views/skills-window.html"></script>
+        <script type="text/html" src="views/contact-window.html"></script>
+    </div>
+
+    <!-- Scripts -->
+    <script type="module" src="js/main.js"></script>
+</body>
+</html>

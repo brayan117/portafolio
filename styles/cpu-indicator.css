@@ -1,0 +1,39 @@
+/* Estilos para el indicador de CPU */
+#cpu-usage {
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+#cpu-usage .fa-microchip {
+    color: #4CAF50;
+    animation: pulse 2s infinite;
+    width: 14px;
+    text-align: center;
+}
+
+#cpu-usage .cpu-percent {
+    transition: color 0.3s ease;
+}
+
+/* Animación de pulso para el ícono de CPU */
+@keyframes pulse {
+    0% { opacity: 0.6; }
+    50% { opacity: 1; }
+    100% { opacity: 0.6; }
+}
+
+/* Colores según el uso de CPU */
+.cpu-low {
+    color: #4CAF50;
+}
+
+.cpu-medium {
+    color: #ffbd2e;
+}
+
+.cpu-high {
+    color: #ff5f56;
+}

@@ -1,0 +1,136 @@
+/* Variables para la barra de estado */
+:root {
+    --status-bar-bg: rgba(15, 20, 25, 0.9);
+    --status-bar-border: rgba(0, 255, 0, 0.15);
+    --status-bar-text: #00ff00;
+    --status-bar-hover: rgba(0, 255, 0, 0.15);
+    --status-bar-active: rgba(0, 255, 0, 0.25);
+    --status-bar-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+}
+
+/* Estilos base para la barra de estado */
+.status-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 36px;
+    background: var(--status-bar-bg);
+    color: var(--status-bar-text);
+    padding: 0 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+    z-index: 1000;
+    backdrop-filter: blur(10px) saturate(180%);
+    -webkit-backdrop-filter: blur(10px) saturate(180%);
+    border-top: 1px solid var(--status-bar-border);
+    box-shadow: var(--status-bar-shadow);
+    font-family: 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', sans-serif;
+}
+
+/* Contenedores laterales */
+.status-left, .status-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    height: 100%;
+}
+
+/* Elementos de la barra de estado */
+.status-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    height: 100%;
+    padding: 0 12px;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+    cursor: default;
+    position: relative;
+    font-weight: 500;
+}
+
+/* Efecto hover en los elementos */
+.status-item:hover {
+    background: var(--status-bar-hover);
+}
+
+/* Efecto activo al hacer clic */
+.status-item:active {
+    background: var(--status-bar-active);
+    transform: translateY(1px);
+}
+
+/* Íconos en la barra de estado */
+.status-item i {
+    width: 16px;
+    text-align: center;
+    font-size: 14px;
+    color: var(--status-bar-text);
+}
+
+/* Estilo para el reloj */
+#current-time {
+    font-family: 'Courier New', monospace;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    padding: 0 8px;
+}
+
+/* Indicador de CPU */
+.cpu-percent {
+    font-weight: 600;
+    font-family: 'Courier New', monospace;
+}
+
+/* Estilo para la IP */
+.target-ip-value {
+    font-family: 'Courier New', monospace;
+    font-weight: 600;
+}
+
+/* Separador entre elementos */
+.status-separator {
+    width: 1px;
+    height: 20px;
+    background: var(--status-bar-border);
+    margin: 0 4px;
+}
+
+/* Efecto de notificación */
+.notification-badge {
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    width: 6px;
+    height: 6px;
+    background: #ff5f56;
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { opacity: 0.6; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.2); }
+    100% { opacity: 0.6; transform: scale(1); }
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+    .status-bar {
+        padding: 0 8px;
+        height: 32px;
+        font-size: 11px;
+    }
+    
+    .status-item {
+        padding: 0 8px;
+        gap: 4px;
+    }
+    
+    #current-time {
+        padding: 0 4px;
+    }
+}

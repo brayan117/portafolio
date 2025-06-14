@@ -1,0 +1,190 @@
+/* Estilos para el indicador de IP objetivo */
+#target-ip {
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+#target-ip .target-ip-value {
+    font-family: 'Courier New', monospace;
+    font-size: 11px;
+    transition: color 0.2s;
+    white-space: nowrap;
+}
+
+/* Contenedor del input de IP */
+#target-ip .ip-input-container {
+    display: none;
+    position: absolute;
+    bottom: 100%;
+    left: 0;
+    background: rgba(0, 0, 0, 0.95);
+    padding: 12px;
+    border-radius: 5px;
+    border: 1px solid var(--primary-color);
+    z-index: 9999;
+    width: 220px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+#target-ip:hover .ip-input-container {
+    display: flex;
+}
+
+/* Estilos para el input de IP */
+#target-ip .ip-input {
+    background: #111;
+    border: 1px solid var(--primary-color);
+    color: var(--text-color);
+    padding: 8px 10px;
+    border-radius: 4px;
+    font-family: 'Courier New', monospace;
+    font-size: 12px;
+    width: 100%;
+    box-sizing: border-box;
+    transition: all 0.2s;
+}
+
+#target-ip .ip-input:focus {
+    outline: none;
+    border-color: var(--primary-light);
+    box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.3);
+}
+
+/* Estilos para el botón de establecer IP */
+#target-ip .ip-button {
+    background: var(--primary-color);
+    color: #000;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.2s;
+    font-family: 'Courier New', monospace;
+    font-size: 12px;
+    width: 100%;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+#target-ip .ip-button:hover {
+    background: var(--primary-light);
+}
+
+/* Estado cuando hay una IP establecida */
+#target-ip.has-target .target-ip-value {
+    color: var(--primary-color);
+    font-weight: bold;
+}/* Estilos para el indicador de IP objetivo */
+#target-ip {
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+#target-ip .target-ip-value {
+    font-family: 'Courier New', monospace;
+    font-size: 11px;
+    transition: color 0.2s;
+    white-space: nowrap;
+}
+
+/* Contenedor del input de IP */
+#target-ip .ip-input-container {
+    display: none;
+    position: absolute;
+    bottom: 100%;
+    left: 0;
+    background: rgba(0, 0, 0, 0.95);
+    padding: 12px;
+    border-radius: 5px;
+    border: 1px solid var(--primary-color);
+    z-index: 9999;
+    width: 220px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+/* Mostrar el contenedor al hacer hover en el elemento padre */
+#target-ip:hover .ip-input-container {
+    display: flex;
+}
+
+/* Estilos para el input de IP */
+#target-ip .ip-input {
+    background: #111;
+    border: 1px solid var(--primary-color);
+    color: var(--text-color);
+    padding: 8px 10px;
+    border-radius: 4px;
+    font-family: 'Courier New', monospace;
+    font-size: 12px;
+    width: 100%;
+    box-sizing: border-box;
+    transition: all 0.2s;
+}
+
+#target-ip .ip-input:focus {
+    outline: none;
+    border-color: var(--primary-light);
+    box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.3);
+}
+
+/* Estilos para el botón de establecer IP */
+#target-ip .ip-button {
+    background: var(--primary-color);
+    color: #000;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.2s;
+    font-family: 'Courier New', monospace;
+    font-size: 12px;
+    width: 100%;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+#target-ip .ip-button:hover {
+    background: var(--primary-light);
+}
+
+/* Estado cuando hay una IP establecida */
+#target-ip.has-target .target-ip-value {
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+/* Tooltip */
+#target-ip .tooltip {
+    display: none;
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-5px);
+    background: rgba(0, 0, 0, 0.9);
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 3px;
+    font-size: 11px;
+    white-space: nowrap;
+    z-index: 10000;
+    margin-bottom: 10px;
+    border: 1px solid var(--primary-color);
+}
+
+#target-ip:hover .tooltip {
+    display: block;
+}
