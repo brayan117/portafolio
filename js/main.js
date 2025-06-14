@@ -4,6 +4,7 @@ import { initDesktop } from './modules/desktop.js';
 import { initStatusBar } from './modules/statusBar.js';
 import { loadTemplates } from './modules/windowManager.js';
 import { initUtils } from './modules/utils.js';
+import { initCertificates } from './modules/certificates.js';
 
 // Inicializar la aplicación
 async function initApp() {
@@ -12,12 +13,13 @@ async function initApp() {
         initUtils();
         
         // Cargar plantillas
-        const templates = await loadTemplates();
+        await loadTemplates();
         
         // Inicializar componentes
-        initTerminal(templates);
+        initTerminal();
         initDesktop();
         initStatusBar();
+        initCertificates(); // Inicializar el módulo de certificados
         
         console.log('Aplicación inicializada correctamente');
     } catch (error) {

@@ -24,7 +24,15 @@ const commands = {
     },
     clear: {
         description: 'Limpia la terminal',
-        execute: (_, terminalOutput) => { terminalOutput.innerHTML = ''; }
+        execute: (terminalOutput) => { 
+            // Limpiar el contenido de la terminal
+            terminalOutput.innerHTML = ''; 
+            // Crear un nuevo input y enfocarlo
+            const terminalInput = document.getElementById('terminal-input');
+            if (terminalInput) {
+                terminalInput.focus();
+            }
+        }
     },
     whoami: {
         description: 'Muestra información del usuario actual',

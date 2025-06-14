@@ -10,7 +10,8 @@ async function loadTemplates() {
         'about-window',
         'projects-window',
         'skills-window',
-        'contact-window'
+        'contact-window',
+        'certificates-window'
     ];
 
     for (const file of templateFiles) {
@@ -69,6 +70,16 @@ function openWindow(windowType) {
     
     // Añadir al contenedor
     windowsContainer.appendChild(windowElement);
+
+    // Disparar evento personalizado cuando se abre la ventana de certificados
+    if (windowType === 'certificates') {
+        // Pequeño retraso para asegurar que el DOM esté listo
+        setTimeout(() => {
+            console.log('Disparando evento certificates-window-opened');
+            const event = new CustomEvent('certificates-window-opened');
+            document.dispatchEvent(event);
+        }, 100);
+    }
     
     // Posicionar ventana
     const windows = document.querySelectorAll('.app-window');

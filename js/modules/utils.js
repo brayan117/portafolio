@@ -55,10 +55,74 @@ function getHighestZIndex() {
     return zIndex;
 }
 
-// Inicializar utilidades
-function initUtils() {
-    // Aquí puedes añadir cualquier inicialización de utilidades que necesites
-    console.log('Utilidades inicializadas');
+// Inicializar el formulario de contacto
+function initContactForm() {
+    const contactForm = document.getElementById('contact-form');
+    
+    if (!contactForm) return;
+    
+    // Inicializar EmailJS con tu User ID
+    // IMPORTANTE: Reemplaza 'YOUR_USER_ID' con tu ID de EmailJS
+    emailjs.init('YOUR_USER_ID');
+    
+    contactForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const submitBtn = this.querySelector('button[type="submit"]');
+        const originalBtnText = submitBtn.innerHTML;
+        
+        // Mostrar indicador de carga
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
+        
+        // Enviar el correo usando EmailJS
+        emailjs.sendForm('default_service', 'YOUR_TEMPLATE_ID', this)
+            .then(() => {
+                // Éxito
+                showNotification('¡Mensaje enviado con éxito!', 'success');
+                contactForm.reset();
+            })
+            .catch((error) => {
+                // Error
+                console.error('Error al enviar el mensaje:', error);
+                showNotification('Error al enviar el mensaje. Por favor, inténtalo de nuevo.', 'error');
+            })
+            .finally(() => {
+                // Restaurar el botón
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = originalBtnText;
+            });
+    });
 }
 
-export { makeDraggable, getHighestZIndex, initUtils };
+// Mostrar notificación
+function showNotification(message, type = 'success') {
+    // Crear elemento de notificación
+    const notification = document.createElement('div');
+    notification.className = `notification ${type}`;
+    notification.textContent = message;
+    
+    // Agregar al documento
+    document.body.appendChild(notification);
+    
+    // Mostrar con animación
+    setTimeout(() => notification.classList.add('show'), 10);
+    
+    // Ocultar después de 5 segundos
+    setTimeout(() => {
+        notification.classList.remove('show');
+        setTimeout(() => notification.remove(), 300);
+    }, 5000);
+}
+
+// Inicializar utilidades
+function initUtils() {
+    // Inicializar el formulario de contacto cuando esté disponible
+    if (document.readyState === 'complete') {
+        initContactForm();
+    } else {
+        window.addEventListener('load', initContactForm);
+    }
+}
+
+export { makeDraggable, getHighestZIndex, initUtils, showNotification };

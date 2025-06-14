@@ -8,7 +8,7 @@
 }
 
 #cpu-usage .fa-microchip {
-    color: #4CAF50;
+    color: #9c27b0;  /* Morado principal */
     animation: pulse 2s infinite;
     width: 14px;
     text-align: center;
@@ -27,13 +27,13 @@
 
 /* Colores según el uso de CPU */
 .cpu-low {
-    color: #4CAF50;
+    color: #ce93d8;  /* Morado claro para uso bajo */
 }
 
 .cpu-medium {
-    color: #ffbd2e;
+    color: #9c27b0;  /* Morado estándar para uso medio */
 }
 
 .cpu-high {
-    color: #ff5f56;
+    color: #6a1b9a;  /* Morado oscuro para uso alto */
 }

@@ -1,0 +1,166 @@
+/* Estilos para la ventana de certificados */
+.certificates-container {
+    padding: 20px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.certificate-item {
+    margin-bottom: 40px;
+    background: rgba(30, 30, 46, 0.8);
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(156, 39, 176, 0.3);
+}
+
+.certificate-item h3 {
+    color: #ce93d8;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.certificate-item h3 i {
+    color: #9c27b0;
+}
+
+.pdf-viewer {
+    margin-bottom: 15px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    background: #1e1e2e;
+    min-height: 500px;
+}
+
+.certificate-actions {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.btn-download {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: linear-gradient(45deg, #9c27b0, #6a1b9a);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-download:hover {
+    background: linear-gradient(45deg, #8e24aa, #5e35b1);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.btn-download:active {
+    transform: translateY(0);
+}
+
+/* Estilos para los mensajes de carga y error */
+.loading-certificates,
+.no-certificates,
+.error-loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    text-align: center;
+    color: #e1bee7;
+}
+
+.loading-certificates i,
+.no-certificates i,
+.error-loading i {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #9c27b0;
+}
+
+.loading-certificates .fa-spinner {
+    animation: spin 1s linear infinite;
+}
+
+.no-certificates .fa-exclamation-circle {
+    color: #ff9800;
+}
+
+.error-loading .fa-exclamation-triangle {
+    color: #f44336;
+}
+
+/* Estilos para mensajes de error en certificados */
+.certificate-error {
+    text-align: center;
+    padding: 2rem;
+    background: rgba(255, 82, 82, 0.1);
+    border-radius: 8px;
+    border: 1px solid rgba(255, 82, 82, 0.3);
+    margin: 1rem 0;
+}
+
+.certificate-error i {
+    font-size: 2.5rem;
+    color: #ff5252;
+    margin-bottom: 1rem;
+}
+
+.certificate-error h3 {
+    color: #ff8a80;
+    margin: 0.5rem 0;
+}
+
+.certificate-error p {
+    color: #ffab91;
+    margin-bottom: 1.5rem;
+}
+
+.certificate-error .btn-download {
+    background: linear-gradient(45deg, #ff5252, #d32f2f);
+}
+
+.certificate-error .btn-download:hover {
+    background: linear-gradient(45deg, #ff1744, #b71c1c);
+}
+
+/* Animación de giro para el spinner */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+    .certificates-container {
+        padding: 10px;
+    }
+    
+    .certificate-item {
+        padding: 15px;
+    }
+    
+    .pdf-viewer {
+        min-height: 400px;
+    }
+}
+
+@media (max-width: 480px) {
+    .pdf-viewer {
+        min-height: 300px;
+    }
+    
+    .btn-download {
+        width: 100%;
+        justify-content: center;
+        padding: 10px;
+    }
+}

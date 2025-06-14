@@ -1,11 +1,11 @@
 /* Variables para la barra de estado */
 :root {
-    --status-bar-bg: rgba(15, 20, 25, 0.9);
-    --status-bar-border: rgba(0, 255, 0, 0.15);
-    --status-bar-text: #00ff00;
-    --status-bar-hover: rgba(0, 255, 0, 0.15);
-    --status-bar-active: rgba(0, 255, 0, 0.25);
-    --status-bar-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    --status-bar-bg: rgba(26, 0, 35, 0.9);  /* Fondo morado oscuro */
+    --status-bar-border: rgba(156, 39, 176, 0.25);  /* Borde morado */
+    --status-bar-text: #e1bee7;  /* Texto morado claro */
+    --status-bar-hover: rgba(156, 39, 176, 0.2);  /* Fondo al pasar el ratón */
+    --status-bar-active: rgba(156, 39, 176, 0.3);  /* Fondo al hacer clic */
+    --status-bar-shadow: 0 0 15px rgba(106, 27, 154, 0.3);  /* Sombra morada */
 }
 
 /* Estilos base para la barra de estado */

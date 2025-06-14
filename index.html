@@ -6,6 +6,7 @@
     <title>CyberSec Portfolio - Sistema Operativo</title>
     <link rel="stylesheet" href="styles/style.css">
     <link rel="stylesheet" href="styles/ascii-background.css">
+    <link rel="stylesheet" href="styles/certificates.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
 <body>
@@ -24,6 +25,10 @@
         <div class="desktop-icon" data-window="skills">
             <i class="fas fa-code"></i>
             <span>Skills</span>
+        </div>
+        <div class="desktop-icon" data-window="certificates">
+            <i class="fas fa-certificate"></i>
+            <span>Certificates</span>
         </div>
         <div class="desktop-icon" data-window="contact">
             <i class="fas fa-envelope"></i>
@@ -63,10 +68,6 @@
     <div class="status-bar">
         <div class="status-left">
             <div class="status-item">
-                <div class="status-indicator active"></div>
-                <span>SECURE CONNECTION</span>
-            </div>
-            <div class="status-item">
                 <i class="fas fa-shield-alt"></i>
                 <span>FIREWALL ACTIVE</span>
             </div>
@@ -95,10 +96,6 @@
             </div>
             <link rel="stylesheet" href="styles/status-bar.css">
             <link rel="stylesheet" href="styles/ip-target.css">
-            <!-- Otros estilos --><link rel="stylesheet" href="styles/style.css">
-            <link rel="stylesheet" href="styles/status-bar.css">
-            <link rel="stylesheet" href="styles/ip-target.css">
-            <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">     
             <!-- WiFi -->
             <div class="status-item">
                 <div class="wifi-icon">
@@ -107,7 +104,16 @@
                     <span class="wifi-bar"></span>
                     <span class="wifi-bar"></span>
                 </div>
-                <span>ENCRYPTED</span>
+                <div class="firewall-icon" id="firewall-scan" title="Firewall activo">
+                    <i class="fas fa-shield-alt"></i>
+                    <div class="radar"></div>
+                </div>
+            </div>
+            
+            <!-- Botón de Consola -->
+            <div class="status-item" id="console-button">
+                <i class="fas fa-terminal"></i>
+                <span>Consola</span>
             </div>
             
             <!-- Hora -->
@@ -123,9 +129,11 @@
         <script type="text/html" src="views/projects-window.html"></script>
         <script type="text/html" src="views/skills-window.html"></script>
         <script type="text/html" src="views/contact-window.html"></script>
+        <script type="text/html" src="views/certificates-window.html"></script>
     </div>
 
     <!-- Scripts -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script type="module" src="js/main.js"></script>
 </body>
 </html>

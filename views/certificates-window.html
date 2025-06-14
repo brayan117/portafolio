@@ -1,0 +1,23 @@
+<!-- Ventana de Certificados -->
+<template id="certificates-window-template">
+    <div class="app-window">
+        <div class="window-header">
+            <div class="window-title">
+                <i class="fas fa-certificate"></i>
+                <span>Certificates</span>
+            </div>
+            <div class="window-controls">
+                <div class="control-btn close">
+                    <i class="fas fa-times"></i>
+                </div>
+            </div>
+        </div>
+        <div class="window-content certificates-container" id="certificates-container">
+            <div class="loading-certificates">
+                <i class="fas fa-spinner fa-spin"></i>
+                <span>Cargando certificados...</span>
+            </div>
+            <!-- Los certificados se agregarán aquí dinámicamente -->
+        </div>
+    </div>
+</template>

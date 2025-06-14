@@ -14,7 +14,7 @@
 
 .wifi-bar {
     width: 3px;
-    background-color: #4CAF50;
+    background-color: #9c27b0;  /* Morado principal */
     margin-right: 2px;
     border-radius: 3px;
     animation: wifiPulse 2s infinite ease-in-out;
@@ -56,16 +56,16 @@
 .wifi-status {
     font-family: 'Courier New', monospace;
     font-size: 11px;
-    color: #4CAF50;
+    color: #9c27b0;  /* Morado principal */
     transition: color 0.3s;
 }
 
 .wifi-weak .wifi-bar {
-    background-color: #ff5f56;
+    background-color: #6a1b9a;  /* Morado oscuro para señal débil */
 }
 
 .wifi-weak .wifi-status {
-    color: #ff5f56;
+    color: #6a1b9a;  /* Morado oscuro para señal débil */
 }
 
 .wifi-medium .wifi-bar:nth-child(3),
@@ -77,4 +77,155 @@
 .wifi-weak .wifi-bar:nth-child(3),
 .wifi-weak .wifi-bar:nth-child(4) {
     opacity: 0.3;
+}
+
+/* Estilos para el escudo de conexión segura */
+.secure-shield {
+    margin-left: 8px;
+    display: flex;
+    align-items: center;
+}
+
+.secure-shield i {
+    color: #9c27b0;  /* Morado principal */
+    font-size: 14px;
+    position: relative;
+    animation: shieldPulse 3s infinite ease-in-out;
+}
+
+@keyframes shieldPulse {
+    0% {
+        transform: scale(1);
+        text-shadow: 0 0 5px rgba(156, 39, 176, 0.5);
+    }
+    50% {
+        transform: scale(1.2);
+        text-shadow: 0 0 15px rgba(156, 39, 176, 0.8);
+        color: #ce93d8;  /* Morado claro */
+    }
+    100% {
+        transform: scale(1);
+        text-shadow: 0 0 5px rgba(156, 39, 176, 0.5);
+    }
+}
+
+/* Efecto de brillo intermitente para el texto ENCRYPTED */
+.encrypted-text {
+    position: relative;
+    display: inline-block;
+    margin-right: 5px;
+}
+
+.encrypted-text::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, 
+        transparent 0%, 
+        rgba(206, 147, 216, 0.3) 50%, 
+        transparent 100%);
+    transform: translateX(-100%);
+    animation: shine 3s infinite;
+}
+
+@keyframes shine {
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+/* Actualizar el selector para el texto ENCRYPTED */
+.status-item > span:first-of-type {
+    position: relative;
+    overflow: hidden;
+}
+
+.status-item > span:first-of-type::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, 
+        transparent 0%, 
+        rgba(206, 147, 216, 0.3) 50%, 
+        transparent 100%);
+    transform: translateX(-100%);
+    animation: shine 3s infinite;
+}
+
+/* Estilos para el ícono de firewall */
+.firewall-icon {
+    display: inline-block;
+    margin-left: 8px;
+    position: relative;
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+    z-index: 1000; /* Asegurarse de que esté por encima de otros elementos */
+}
+
+.firewall-icon i {
+    color: #9c27b0;
+    font-size: 16px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.3s ease;
+    z-index: 2;
+}
+
+/* Efecto de radar */
+.radar {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(156, 39, 176, 0.2);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: all 0.5s ease-out;
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Clase para activar el radar */
+.firewall-icon.active i {
+    color: #ce93d8;
+    transform: translate(-50%, -50%) scale(1.2);
+}
+
+.firewall-icon.active .radar {
+    width: 40px;
+    height: 40px;
+    opacity: 0;
+    animation: radarPulse 2s ease-out infinite;
+}
+
+@keyframes radarPulse {
+    0% {
+        transform: translate(-50%, -50%) scale(0.5);
+        opacity: 0.8;
+        background: rgba(156, 39, 176, 0.4);
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(2.5);
+        opacity: 0;
+        background: rgba(206, 147, 216, 0.1);
+    }
+}
+
+/* Estilo para el texto SECURED */
+.status-text {
+    color: #ce93d8;
+    font-weight: bold;
+    margin: 0 5px;
+    text-shadow: 0 0 5px rgba(206, 147, 216, 0.5);
 }
