@@ -22,9 +22,10 @@ portafolio/
 │       ├── desktop.js  # Gestión del escritorio
 │       ├── windowManager.js  # Gestión de ventanas
 │       └── certificates.js   # Gestión de certificados
-├── resources/          # Archivos estáticos (PDFs, imágenes, etc.)
 ├── styles/             # Hojas de estilo CSS
-└── views/              # Plantillas HTML para ventanas
+├── views/              # Plantillas HTML para ventanas
+├── certificado1.pdf    # Archivos PDF en la raíz del proyecto
+└── certificado2.pdf
 ```
 
 ## 🛠️ Cómo Configurar
@@ -51,9 +52,9 @@ portafolio/
 
 ### Añadir Certificados
 
-1. Coloca tus archivos PDF en la carpeta `resources/`
+1. Coloca tus archivos PDF directamente en la carpeta raíz del proyecto
 2. Los certificados se cargarán automáticamente en la ventana de Certificados
-3. Los nombres de los archivos se formatearán automáticamente
+3. Los nombres de los archivos se formatearán automáticamente (los espacios y guiones se convertirán en espacios)
 
 ### Cambiar la Paleta de Colores
 
